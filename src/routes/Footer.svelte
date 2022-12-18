@@ -1,15 +1,15 @@
-
 <footer>
-    <p>by joshuakalejaiye</p>
-</footer>  
+	<p>by joshuakalejaiye</p>
+</footer>
 
 <style>
-    footer {
-        background: #212121;
-        color: white;
-        padding-left: 1rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+	footer {
+		color: white;
+		padding-left: 1rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: #fbf9ee;
+		border: 1px solid black;
+	}
 </style>

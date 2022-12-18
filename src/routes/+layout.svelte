@@ -1,20 +1,22 @@
 <script>
-    import Header from './Header.svelte';
-    import Footer from './Footer.svelte';
-    import './styles.css'
+	import Header from './Header.svelte';
+	import Footer from './Footer.svelte';
+	import './styles.css';
 </script>
 
 <Header />
 
 <main>
-    <slot />
+	<slot />
 </main>
 
 <Footer />
 
 <style>
-    main {
-        padding: 1rem;
-        min-height: 100vh;
-    }
+	main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		min-height: 100vh;
+	}
 </style>
