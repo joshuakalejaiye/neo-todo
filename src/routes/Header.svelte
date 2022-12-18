@@ -1,5 +1,5 @@
 <header>
-    <h1>To-do App</h1>
+    <h1></h1>
     <nav>
         <a href="/">Home</a>
         <a href="/about">About</a>
@@ -8,9 +8,8 @@
 
 <style>
     header {
-        background: #212121;
-        color: white;
-        padding-left: 1rem;
+        background: #FBF9EE;
+        padding: 0 1rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -20,7 +19,7 @@
         gap: 1rem;
     }
     nav a {
-        color: white;
+        color: #1B4D7A;
         text-decoration: none;
     }
 </style>
