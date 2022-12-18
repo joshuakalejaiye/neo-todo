@@ -7,4 +7,5 @@
 ### Planned
 - Prisma for DB
 - TRPC for [BFF](https://learn.microsoft.com/en-us/azure/architecture/patterns/backends-for-frontends)
+  -  AWS Lambdas ? Serverless ?
 - Tailwind for CSS
