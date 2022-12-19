@@ -1,15 +1,19 @@
 {
 	"hosting": {
-		"public": "neoTodoApp",
+		"public": "build",
+		"ignore": ["**/.firebase/**"],
+		"cleanUrls": true,
 		"rewrites": [
 			{
 				"source": "**",
-				"function": "ssrServer"
+				"function": "handler",
+				"region": "europe-west1"
 			}
-		],
-		"predeploy": ["npm run build"]
+		]
 	},
-	"functions": {
-		"source": "functions"
-	}
+	"functions": [
+		{
+			"source": "build"
+		}
+	]
 }

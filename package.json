@@ -25,6 +25,7 @@
 		"svelte": "^3.54.0",
 		"svelte-adapter-firebase": "^0.14.4",
 		"svelte-check": "^2.9.2",
+		"sveltekit-adapter-firebase": "^0.1.13",
 		"ts-node": "^10.9.1",
 		"tslib": "^2.4.1",
 		"typescript": "^4.9.4",
