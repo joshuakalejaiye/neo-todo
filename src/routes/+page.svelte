@@ -1,5 +1,6 @@
 <script lang="ts">
 	import TodoItem from '$components/TodoItem.svelte';
+
 	import Hero from './Hero.svelte';
 	export let data: {
 		todos: Todo[];
@@ -8,21 +9,26 @@
 		checkTodo: (todo: Todo) => void;
 	};
 
-	$: ({ todos, postTodo, deleteTodo, checkTodo } = data);
+	$: ({
+		todos: fireTodos,
+		postTodo,
+		deleteTodo,
+		checkTodo
+	} = data);
 
-	const addTodos = (taskText: string) => {
-		if (!taskText) return;
-		postTodo({
-			text: taskText,
-			completed: false,
-			createdAt: new Date()
-		});
+	let fromLocalStorage: boolean;
+
+	$: todos = fireTodos;
+	let addTodos = (taskText: string) => {
+		if (taskText) {
+			postTodo({
+				text: taskText,
+				completed: false,
+				createdAt: new Date()
+			});
+		}
 	};
 
-	$: completedTasks = todos.filter(
-		(todo) => todo.completed
-	).length;
-	$: incompleteTasks = todos.length - completedTasks;
 	$: todos, console.table(todos);
 </script>
 
@@ -40,8 +46,9 @@
 			<TodoItem
 				text={todo.text}
 				completed={todo.completed}
-				onCheck={() => checkTodo(todo)}
-				onDelete={() => deleteTodo(todo)}
+				onCheck={() => !fromLocalStorage && checkTodo(todo)}
+				onDelete={() =>
+					!fromLocalStorage && deleteTodo(todo)}
 			/>
 		{/each}
 	</div>

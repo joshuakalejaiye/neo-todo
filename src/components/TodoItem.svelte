@@ -63,13 +63,14 @@
 				showDelete = true;
 			}}
 			on:mouseleave={() => {
-				setTimeout(() => {
-					showDelete = false;
-				}, 20);
+				showDelete = false;
 			}}
 			class="w-[612px] cursor-pointer border-2 border-dark-blue bg-light-cream shadow-[4px_4px_0px_0px_#FFD12F] hover:bg-cream"
 		>
 			<div
+				style:color={completed
+					? 'rgb(141,166,189)'
+					: 'rgb(27,77,122)'}
 				style:text-decoration={textDecoration}
 				class="justify-self mt-[6px] max-h-[70px] min-h-[38px] w-full overflow-auto break-words pl-3 pr-1 text-2xl text-dark-blue"
 			>
@@ -88,9 +89,15 @@
 			class="mr-2 flex h-12 w-12 cursor-pointer border-t-2 border-b-2 border-r-2 border-dark-blue bg-red text-white shadow-[4px_4px_0px_0px_#FFD12F]"
 			on:click={onDelete}
 			on:keypress={onDelete}
+			on:mouseenter|stopPropagation={() => {
+				showDelete = true;
+			}}
+			on:mouseleave={() => {
+				showDelete = false;
+			}}
 		>
 			<p
-				class="mt-[-13px] w-full pl-[6px] text-6xl font-semibold"
+				class="mt-[-13px] w-full pl-[5px] text-6xl font-semibold"
 				on:click={onDelete}
 				on:keypress={onDelete}
 			>
