@@ -5,7 +5,6 @@
 - ![Figma Design](https://user-images.githubusercontent.com/32837010/208271045-09aaece1-5c61-40d6-856f-59100cad173a.png)
 
 ### Planned
-- Prisma for DB
-- TRPC for [BFF](https://learn.microsoft.com/en-us/azure/architecture/patterns/backends-for-frontends)
-  -  AWS Lambdas ? Serverless ?
+- Prisma with MongoDB Atlas
+-  AWS Lambdas ? Serverless ?
 - Tailwind for CSS
