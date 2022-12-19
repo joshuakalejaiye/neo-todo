@@ -1,6 +1,6 @@
 <header>
 	<nav>
-		<a href="/">Server</a>
+		<a href="/">Local Storage</a>
 	</nav>
 </header>
 
