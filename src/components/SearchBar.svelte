@@ -15,7 +15,7 @@
 
 <style>
 	form {
-		margin: -55px 0 0 0;
+		margin: 0 0 0 0;
 		display: flex;
 		justify-content: center;
 	}

@@ -19,6 +19,7 @@
 		background-color: #fbf9ee;
 	}
 	h1 {
+		margin-top: 50px;
 		font-size: 100px;
 		font-weight: 400;
 	}
