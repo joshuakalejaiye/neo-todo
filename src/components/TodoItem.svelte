@@ -27,6 +27,9 @@
 			style:border={completed
 				? '2px solid rgb(141,166,189)'
 				: '2px solid rgb(27,77,122)'}
+			style:box-shadow={completed
+				? '4px 4px 0px 0px #ffd12f8c'
+				: '4px 4px 0px 0px #FFD12F'}
 			class="mr-2 h-12 min-h-[38px] w-12 cursor-pointer border-2 border-dark-blue bg-light-cream shadow-[4px_4px_0px_0px_#FFD12F] hover:bg-cream"
 			on:click={checkItem}
 			on:keypress={checkItem}
@@ -53,6 +56,9 @@
 			style:border={completed
 				? '2px solid rgb(141,166,189)'
 				: '2px solid rgb(27,77,122)'}
+			style:box-shadow={completed
+				? '4px 4px 0px 0px #ffd12f8c'
+				: '4px 4px 0px 0px #FFD12F'}
 			on:mouseenter={() => {
 				showDelete = true;
 			}}
@@ -76,6 +82,9 @@
 				: '2px solid rgb(27,77,122)'}
 			style:border-left={'none'}
 			style:display={showDelete ? 'block' : 'none'}
+			style:box-shadow={completed
+				? '4px 4px 0px 0px #ffd12f8c'
+				: '4px 4px 0px 0px #FFD12F'}
 			class="mr-2 flex h-12 w-12 cursor-pointer border-t-2 border-b-2 border-r-2 border-dark-blue bg-red text-white shadow-[4px_4px_0px_0px_#FFD12F]"
 			on:click={onDelete}
 			on:keypress={onDelete}
