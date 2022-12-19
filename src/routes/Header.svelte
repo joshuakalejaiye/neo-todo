@@ -1,24 +1,5 @@
-<header>
+<header class="h-12">
 	<nav>
-		<a href="/">Local Storage</a>
+		<a href="/" class="float-right text-dark-blue">Local Storage</a>
 	</nav>
 </header>
-
-<style>
-	header {
-		padding: 0 1rem;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-	nav {
-		display: flex;
-		gap: 1rem;
-		margin-left: auto;
-	}
-	nav a {
-		color: #1b4d7a;
-		text-decoration: none;
-		padding-top: 4px;
-	}
-</style>

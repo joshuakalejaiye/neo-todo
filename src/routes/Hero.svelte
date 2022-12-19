@@ -3,24 +3,10 @@
 	export let addTodos: (text: string) => void;
 </script>
 
-<div class="hero">
-	<h1>to-do app</h1>
-	<SearchBar onAdd={addTodos} />
+<div class="h-96 bg-light-cream w-full border-b-2 border-t-2 border-dark-blue">
+	<div class="flex flex-col items-center h-full justify-center">
+		<h1 class="text-dark-blue text-8xl">to-do app</h1>
+		<SearchBar onAdd={addTodos} />
+	</div>
 </div>
 
-<style>
-	.hero {
-		margin-top: 30px;
-		height: 370px;
-		border-top: 1px solid #1b4d7a;
-		border-bottom: 1px solid #1b4d7a;
-		width: 100vw;
-		text-align: center;
-		background-color: #fbf9ee;
-	}
-	h1 {
-		margin-top: 50px;
-		font-size: 100px;
-		font-weight: 400;
-	}
-</style>

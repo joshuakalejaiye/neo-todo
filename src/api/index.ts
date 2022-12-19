@@ -35,6 +35,9 @@ export async function getTodos() {
 	todos.sort((a, b) => {
 		return b.createdAt - a.createdAt;
 	});
+	todos.sort((a, b) => {
+		return a.completed - b.completed;
+	});
 	return todos;
 }
 
@@ -52,6 +55,8 @@ export async function deleteTodo(todo: Todo) {
 
 export async function checkTodo(todo: Todo) {
 	const todosCol = collection(db, 'todos');
-	await updateDoc(doc(todosCol, todo.id), { completed: !todo.completed });
+	await updateDoc(doc(todosCol, todo.id), {
+		completed: !todo.completed
+	});
 	invalidate('todos');
 }
