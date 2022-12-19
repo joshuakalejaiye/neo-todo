@@ -7,3 +7,10 @@ declare namespace App {
 	// interface PageData {}
 	// interface Platform {}
 }
+
+type Todo = {
+	id?: string;
+	text: string;
+	completed: boolean;
+	createdAt: Date;
+};

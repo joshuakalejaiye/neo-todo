@@ -1,45 +1,27 @@
 <script lang="ts">
 	import TodoItem from '$components/TodoItem.svelte';
 	import Hero from './Hero.svelte';
+	export let data: {
+		todos: Todo[];
+		postTodo: (todo: Todo) => void;
+		deleteTodo: (todo: Todo) => void;
+		checkTodo: (todo: Todo) => void;
+	};
 
-	let todos = [
-		{
-			id: 0,
-			text: 'first task',
-			completed: false
-		}
-	];
+	$: ({ todos, postTodo, deleteTodo, checkTodo } = data);
 
 	const addTodos = (taskText: string) => {
 		if (!taskText) return;
-
-		todos = [
-			...todos,
-			{
-				id: todos.length,
-				text: taskText,
-				completed: false
-			}
-		];
-	};
-
-	const checkTodo = (id: number) => {
-		const todo = todos.find((todo) => todo.id === id);
-
-		if (todo) {
-			todo.completed = !todo.completed;
-		}
-
-		todos = todos;
-	};
-
-	const deleteTodo = (id: number) => {
-		todos = [...todos.filter((todo) => todo.id !== id)];
+		postTodo({
+			text: taskText,
+			completed: false,
+			createdAt: new Date()
+		});
 	};
 
 	$: completedTasks = todos.filter((todo) => todo.completed).length;
 	$: incompleteTasks = todos.length - completedTasks;
-	$: todos, console.log(todos);
+	$: todos, console.table(todos);
 </script>
 
 <Hero {addTodos} />
@@ -60,8 +42,8 @@
 			<TodoItem
 				text={todo.text}
 				bind:completed={todo.completed}
-				onCheck={() => checkTodo(todo.id)}
-				onDelete={() => deleteTodo(todo.id)}
+				onCheck={() => checkTodo(todo)}
+				onDelete={() => deleteTodo(todo)}
 			/>
 		{/each}
 	</div>
@@ -86,7 +68,7 @@
 		width: calc((1920px * 0.1));
 		height: 100px;
 		left: 0;
-		margin-left: 10vw;
+		margin-left: 2vw;
 		background-color: #fbf9ee;
 	}
 
