@@ -1,7 +1,5 @@
 import { invalidate } from '$app/navigation';
-import { PUBLIC_FIREBASE_API_KEY } from '$env/static/public';
 import { initializeApp } from 'firebase/app';
-
 import 'firebase/auth';
 import 'firebase/firestore';
 import {
@@ -14,9 +12,8 @@ import {
 	updateDoc
 } from 'firebase/firestore';
 
-// get firebase api key from .env file
 const firebaseConfig = {
-	apiKey: PUBLIC_FIREBASE_API_KEY,
+	apiKey: 'AIzaSyDU3oxMYSxPv65qIXRmkABrBXT5n2hfjH8',
 	authDomain: 'neo-todo-app-96ced.firebaseapp.com',
 	projectId: 'neo-todo-app-96ced',
 	storageBucket: 'neo-todo-app-96ced.appspot.com',
