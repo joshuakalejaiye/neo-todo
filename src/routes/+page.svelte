@@ -41,7 +41,7 @@
 		{#each todos as todo}
 			<TodoItem
 				text={todo.text}
-				bind:completed={todo.completed}
+				completed={todo.completed}
 				onCheck={() => checkTodo(todo)}
 				onDelete={() => deleteTodo(todo)}
 			/>

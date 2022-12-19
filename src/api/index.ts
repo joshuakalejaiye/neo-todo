@@ -28,9 +28,12 @@ const db = getFirestore(firebaseApp);
 export async function getTodos() {
 	const todosCol = collection(db, 'todos');
 	const querySnapshot = await getDocs(todosCol);
-	const todos = querySnapshot.docs.map((doc) => {
+	const todos = querySnapshot.docs.map((doc: any) => {
 		console.log(doc.id);
 		return { id: doc.id, ...doc.data() };
+	});
+	todos.sort((a, b) => {
+		return b.createdAt - a.createdAt;
 	});
 	return todos;
 }
