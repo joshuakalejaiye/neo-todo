@@ -71,7 +71,7 @@
 		margin-top: 11px;
 		border-radius: 0px;
 		background-color: #fbf9ee;
-		border: 1px solid #1b4d7a;
+		border: 2px solid #1b4d7a;
 		margin-right: 10px;
 		cursor: pointer;
 	}
@@ -81,7 +81,7 @@
 		align-items: center;
 		width: 100%;
 		height: 50px;
-		border: 1px solid #1b4d7a;
+		border: 2px solid #1b4d7a;
 		margin-top: 11px;
 		background-color: #fbf9ee;
 		cursor: text;
@@ -91,9 +91,9 @@
 		height: 50px;
 		background-color: #db6163;
 		margin-top: 11px;
-		border-right: 1px solid #1b4d7a;
-		border-top: 1px solid #1b4d7a;
-		border-bottom: 1px solid #1b4d7a;
+		border-right: 2px solid #1b4d7a;
+		border-top: 2px solid #1b4d7a;
+		border-bottom: 2px solid #1b4d7a;
 		cursor: pointer;
 	}
 	.deleteText {

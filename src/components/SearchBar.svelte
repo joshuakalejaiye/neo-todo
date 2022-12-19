@@ -22,6 +22,6 @@
 	.textbox {
 		width: 430px;
 		height: 50px;
-		border: 1px solid black;
+		border: 2px solid #1b4d7a;
 	}
 </style>

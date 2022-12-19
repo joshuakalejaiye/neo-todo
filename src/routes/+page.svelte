@@ -63,7 +63,7 @@
 		position: absolute;
 		flex-direction: column;
 		height: 50px;
-		border: 1px solid #1b4d7a;
+		border: 2px solid #1b4d7a;
 		margin: 10px 0;
 		width: calc((1920px * 0.1));
 		height: 100px;
