@@ -7,6 +7,7 @@ import {
 	collection,
 	deleteDoc,
 	doc,
+	getDoc,
 	getDocs,
 	getFirestore,
 	updateDoc
@@ -25,38 +26,84 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 const db = getFirestore(firebaseApp);
 
-export async function getTodos() {
-	const todosCol = collection(db, 'todos');
-	const querySnapshot = await getDocs(todosCol);
-	const todos = querySnapshot.docs.map((doc: any) => {
-		console.log(doc.id);
-		return { id: doc.id, ...doc.data() };
-	});
-	todos.sort((a, b) => {
-		return b.createdAt - a.createdAt;
-	});
-	todos.sort((a, b) => {
-		return a.completed - b.completed;
-	});
-	return todos;
-}
+export const user = 'joshua';
+
+export const getUser = async () => {
+	return user;
+};
+
+export const getTodos = async () => {
+	const docRef = doc(db, 'todos', user);
+	const docSnap = await getDoc(docRef);
+
+	let todos: Todo[] = [];
+	let userExists;
+
+	if (docSnap.exists()) {
+		todos = docSnap.data().tasks;
+		userExists = true;
+	} else {
+		console.log('this user doesnt exist');
+	}
+
+	return { userExists, tasks: todos };
+};
 
 export async function postTodo(todo: Todo) {
-	const todosCol = collection(db, 'todos');
-	await addDoc(todosCol, todo);
-	invalidate('todos');
+	const docRef = doc(db, 'todos', user);
+	const docSnap = await getDoc(docRef);
+
+	if (docSnap.exists()) {
+		console.log('Document data:', docSnap.data());
+		const todosCol = collection(db, 'todos');
+		await updateDoc(doc(todosCol, user), {
+			tasks: [...docSnap.data().tasks, todo]
+		});
+		invalidate('todos');
+	} else {
+		console.log('this user doesnt exist');
+	}
 }
 
 export async function deleteTodo(todo: Todo) {
-	const todosCol = collection(db, 'todos');
-	await deleteDoc(doc(todosCol, todo.id));
-	invalidate('todos');
+	const docRef = doc(db, 'todos', user);
+	const docSnap = await getDoc(docRef);
+
+	if (docSnap.exists()) {
+		console.log('Document data:', docSnap.data());
+		const todosCol = collection(db, 'todos');
+		await updateDoc(doc(todosCol, user), {
+			tasks: docSnap
+				.data()
+				.tasks.filter((t: Todo) => t.id !== todo.id)
+		});
+		invalidate('todos');
+	} else {
+		console.log('this user doesnt exist');
+	}
 }
 
 export async function checkTodo(todo: Todo) {
-	const todosCol = collection(db, 'todos');
-	await updateDoc(doc(todosCol, todo.id), {
-		completed: !todo.completed
-	});
-	invalidate('todos');
+	const docRef = doc(db, 'todos', user);
+	const docSnap = await getDoc(docRef);
+
+	if (docSnap.exists()) {
+		console.log('Document data:', docSnap.data());
+		const todosCol = collection(db, 'todos');
+		const todoToChange = docSnap
+			.data()
+			.tasks.find((t: Todo) => t.id === todo.id);
+		todoToChange.completed = !todoToChange.completed;
+		await updateDoc(doc(todosCol, user), {
+			tasks: [
+				...docSnap
+					.data()
+					.tasks.filter((t: Todo) => t.id !== todo.id),
+				todoToChange
+			]
+		});
+		invalidate('todos');
+	} else {
+		console.log('this user doesnt exist');
+	}
 }

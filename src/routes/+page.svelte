@@ -17,11 +17,11 @@
 	} = data);
 
 	let fromLocalStorage: boolean;
-
 	$: todos = fireTodos;
 	let addTodos = (taskText: string) => {
 		if (taskText) {
 			postTodo({
+				id: Math.random().toString(36).substr(2, 9),
 				text: taskText,
 				completed: false,
 				createdAt: new Date()

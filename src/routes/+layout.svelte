@@ -2,9 +2,11 @@
 	import Header from './Header.svelte';
 	import Footer from './Footer.svelte';
 	import '../app.css';
+	export let data: { user: string };
+	$: ({ user } = data);
 </script>
 
-<Header />
+<Header {user} />
 
 <main>
 	<slot />

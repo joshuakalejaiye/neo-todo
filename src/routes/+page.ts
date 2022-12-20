@@ -5,14 +5,17 @@ import {
 	postTodo
 } from '$api';
 
-export const load = ({
+export const load = async ({
 	depends
 }: {
 	depends: (key: string) => void;
 }) => {
 	depends('todos');
+	const todos = await getTodos().then(
+		(userData) => userData.tasks
+	);
 	return {
-		todos: getTodos(),
+		todos: todos,
 		postTodo,
 		deleteTodo,
 		checkTodo
