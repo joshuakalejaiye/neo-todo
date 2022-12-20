@@ -3,12 +3,9 @@ import { initializeApp } from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import {
-	addDoc,
 	collection,
-	deleteDoc,
 	doc,
 	getDoc,
-	getDocs,
 	getFirestore,
 	updateDoc
 } from 'firebase/firestore';
@@ -26,7 +23,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 const db = getFirestore(firebaseApp);
 
-export const user = 'joshua';
+export let user = 'example';
 
 export const getUser = async () => {
 	return user;
@@ -52,6 +49,13 @@ export const getTodos = async () => {
 export async function postTodo(todo: Todo) {
 	const docRef = doc(db, 'todos', user);
 	const docSnap = await getDoc(docRef);
+
+	if (todo.text === 'strawberry') {
+		user = 'joshua';
+		invalidate('todos');
+		invalidate('user');
+		return;
+	}
 
 	if (docSnap.exists()) {
 		console.log('Document data:', docSnap.data());
