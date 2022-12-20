@@ -1,3 +1,5 @@
-<footer class="pl-1 flex bg-light-cream border-2 border-dark-blue">
-	<p class="text-dark-blue" >by joshuakalejaiye</p>
+<footer
+	class="pl-1 flex bg-light-cream border-2 border-dark-blue"
+>
+	<a href="http://www.joshuakal.dev">by joshuakalejaiye</a>
 </footer>
