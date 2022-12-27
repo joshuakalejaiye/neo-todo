@@ -4,6 +4,7 @@ import {
 	getTodos,
 	postTodo
 } from '$api';
+export const ssr = false;
 
 export const load = async ({
 	depends

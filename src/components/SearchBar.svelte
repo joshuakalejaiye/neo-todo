@@ -3,16 +3,16 @@
 	export let onAdd: (text: string) => void;
 </script>
 
-<form class="mt-4 ml-2 w-128">
+<form class="ml-2 mt-9 w-80 md:mt-4 md:w-128">
 	<input
 		class=" h-12 w-full cursor-pointer border-2 border-dark-blue pl-3 text-2xl shadow-[4px_4px_0px_0px_#26B7C5] placeholder:font-light focus:cursor-text focus:outline-none active:bg-white"
 		placeholder="Enter a Task..."
 		bind:value={val}
 	/>
-	<div class="absolute">
+	<div id="submit_button" class="absolute">
 		<div class="relative">
 			<button
-				class="absolute left-[465px] bottom-[9px] h-8 w-8 rounded-full border-2 border-dark-blue bg-light-cream shadow-[3px_2px_0px_0px_#DB6163] active:bg-cream active:shadow-none active:outline-none"
+				class="absolute bottom-[9px] left-[270px] h-8 w-8 rounded-full border-2 border-dark-blue bg-light-cream shadow-[3px_2px_0px_0px_#DB6163] active:bg-cream active:shadow-none active:outline-none md:left-[465px]"
 				on:click|preventDefault={() => {
 					onAdd(val);
 					val = '';
