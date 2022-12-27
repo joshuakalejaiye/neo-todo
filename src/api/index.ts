@@ -43,6 +43,14 @@ export const getTodos = async () => {
 		console.log('this user doesnt exist');
 	}
 
+	todos.sort((a, b) => {
+		return b.createdAt.valueOf() - a.createdAt.valueOf();
+	});
+
+	todos.sort((a, b) => {
+		return Number(a.completed) - Number(b.completed);
+	});
+
 	return { userExists, tasks: todos };
 };
 
