@@ -1,6 +1,5 @@
 import { invalidate } from '$app/navigation';
 import { initializeApp } from 'firebase/app';
-import 'firebase/auth';
 import 'firebase/firestore';
 import {
 	collection,

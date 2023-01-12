@@ -16,7 +16,6 @@
 		checkTodo
 	} = data);
 
-	let fromLocalStorage: boolean;
 	$: todos = fireTodos;
 	let addTodos = (taskText: string) => {
 		if (taskText) {
@@ -46,9 +45,8 @@
 			<TodoItem
 				text={todo.text}
 				completed={todo.completed}
-				onCheck={() => !fromLocalStorage && checkTodo(todo)}
-				onDelete={() =>
-					!fromLocalStorage && deleteTodo(todo)}
+				onCheck={() => checkTodo(todo)}
+				onDelete={() => deleteTodo(todo)}
 			/>
 		{/each}
 	</div>
